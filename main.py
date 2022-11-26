@@ -2,17 +2,18 @@
 # Jessica Ortiz 20192
 import pygame
 from OpenGL.GL import *
+import numpy as np
 import copy
 import random
 
 
 pygame.init()
 # escala de los pixeles
-scale = 10
+scale = 8
 
 # pantalla
-w = 80
-h = 80
+w = 64
+h = 64
 screen = pygame.display.set_mode((w*scale, h*scale),pygame.OPENGL | pygame.DOUBLEBUF)
 
 # colores
@@ -102,23 +103,111 @@ x = w
 y = h
 
 # Generacion de pixeles
-pixels[15][2] = 1
-pixels[15][5] = 1
-pixels[15][5] = 1 
-pixels[15][1] = 1
-pixels[15][3] = 1
 
-pixels[25][1] = 1
-pixels[25][2] = 1
-pixels[25][3] = 1
-pixels[25][2] = 1
+#el como que explota
+pixels[21][21] = 1
+pixels[22][22] = 1
+pixels[22][23] = 1
+pixels[21][23] = 1
+pixels[20][23] = 1
 
+pixels[31][41] = 1
+pixels[32][42] = 1
+pixels[32][43] = 1
+pixels[31][43] = 1
+pixels[30][43] = 1
+
+pixels[20][10] = 1
+pixels[20][11] = 1
+pixels[20][12] = 1
+
+#hace pequeño circulo
+pixels[15][10] = 1
+pixels[14][11] = 1
+pixels[13][13] = 1
+pixels[12][13] = 1
+pixels[11][13] = 1
+
+pixels[31][51] = 1
+pixels[32][52] = 1
+pixels[32][53] = 1
+pixels[31][53] = 1
+pixels[30][53] = 1
+
+#estrellita pequeña
+pixels[5][3] = 1
+pixels[5][4] = 1
+pixels[5][5] = 1
+#estrellita pequeña
+pixels[5][3] = 1
+pixels[5][4] = 1
+pixels[5][5] = 1
+
+pixels[10][40] = 1
+pixels[11][41] = 1
+pixels[12][43] = 1
+pixels[11][43] = 1
+pixels[10][43] = 1
+
+#parte del que se mueve
+pixels[30][30] = 1
+pixels[32][32] = 1
+pixels[32][33] = 1
+pixels[31][33] = 1
+pixels[30][33] = 1
+
+pixels[21][21] = 1
+pixels[22][22] = 1
+pixels[22][23] = 1
+pixels[21][23] = 1
+pixels[20][23] = 1
+
+#estrellita pequeña
+pixels[30][5] = 1
+pixels[30][6] = 1
+pixels[30][7] = 1
+
+#estrellita pequeña
+pixels[40][5] = 1
+pixels[40][6] = 1
+pixels[40][7] = 1
+
+#el como que explota
+pixels[31][21] = 1
+pixels[32][22] = 1
+pixels[32][23] = 1
+pixels[31][23] = 1
+pixels[30][23] = 1
+
+pixels[41][41] = 1
+pixels[42][42] = 1
+pixels[42][43] = 1
+pixels[41][43] = 1
+pixels[40][43] = 1
+#cuando termina aqui hace la estrella mediana
+pixels[43][43] = 1
+pixels[38][35] = 1
+pixels[17][17] = 1
+pixels[17][21] = 1
+pixels[40][43] = 1
+#hace pequeño circulo
+pixels[25][10] = 1
+pixels[24][11] = 1
+pixels[23][13] = 1
+pixels[22][13] = 1
+pixels[21][13] = 1
+
+pixels[41][61] = 1
+pixels[42][62] = 1
+pixels[42][63] = 1
+pixels[41][63] = 1
+pixels[40][63] = 1
 
 
 #ray casting
 running = True
 while running:
-    glClearColor(0.0, 0.0, 0.0, 1.0)
+    glClearColor(0.0, 0.0, 0.0, 0.0)
     glClear(GL_COLOR_BUFFER_BIT)
     # dibujar
     update()
