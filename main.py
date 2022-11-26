@@ -2,9 +2,7 @@
 # Jessica Ortiz 20192
 import pygame
 from OpenGL.GL import *
-import numpy as np
 import copy
-import random
 
 
 pygame.init()
@@ -74,9 +72,8 @@ def draw():
             else:
                 pixel(x, y, background)
 
-# funcion de Update para dar la logica al juego y poder mostrar los diferentes cambios
-def update():
-    # Toma la ultima captura de los pixeles
+# funcion que usa la logica para el juego y que se vean los cambios
+def uselogic():
     last_pixels = copy.deepcopy(pixels)
     for x in range(w):
         for y in range(h):
@@ -97,12 +94,12 @@ def update():
                     pixels[x][y] = 1
     draw()
 
-# retorna el size de la pantalla
+# se retorna el tamaño de la pantalla
 size = (w * h)/3
 x = w
 y = h
 
-# Generacion de pixeles
+# generando los pixeles a dibujar
 
 #el como que explota
 pixels[21][21] = 1
@@ -204,13 +201,13 @@ pixels[41][63] = 1
 pixels[40][63] = 1
 
 
-#ray casting
+#ray tracer
 running = True
 while running:
     glClearColor(0.0, 0.0, 0.0, 0.0)
     glClear(GL_COLOR_BUFFER_BIT)
     # dibujar
-    update()
+    uselogic()
 
     pygame.display.flip()
 
